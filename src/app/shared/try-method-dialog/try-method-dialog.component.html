@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>{{data.name | uppercase}}</h1>
+<div mat-dialog-content>
+  <div class="info">
+    {{ data.call }}<br/>
+  </div>
+  <div class="param-container">
+    <div class="param-list" *ngFor="let param of data.parameters; let i = index">
+      <mat-form-field appearance="fill">
+        <mat-label>{{param.name}}</mat-label>
+        <input matInput [formControl]="controls[i]" [placeholder]="getPlaceholder(param)">
+      </mat-form-field>
+    </div>
+  </div>
+  <button mat-raised-button color="primary" (click)="runMethod()">Run</button>
+  <mat-form-field class="return" appearance="fill" *ngIf="hasResult">
+    <mat-label>Return</mat-label>
+    <textarea matInput readonly="true" [formControl]="resultFormControl">Here comes the return</textarea>
+  </mat-form-field>
+</div>

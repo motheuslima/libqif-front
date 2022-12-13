@@ -1,0 +1,32 @@
+<h1>qif.measure</h1>
+<h2>Vulnerability and leakage measures.</h2>
+
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Bayes Vulnerability">
+    <app-item [components]="bayesVulnComponents" title="qif.measure.bayes_vuln" description="Bayes vulnerability"></app-item>
+  </mat-tab>
+  <mat-tab label="Bayes Risk">
+    <app-item [components]="bayesRiskComponents" title="qif.measure.bayes_risk" description="Bayes risk"></app-item>
+  </mat-tab>
+  <mat-tab label="Predicate Vulnerability">
+    <app-item [components]="predVulnComponents" title="qif.measure.pred_vuln" description="Predicate Vulnerability"></app-item>
+  </mat-tab>
+  <mat-tab label="Predicate Risk">
+    <app-item [components]="predRiskComponents" title="qif.measure.pred_risk" description="Predicate Risk"></app-item>
+  </mat-tab>
+  <mat-tab label="g-vulnerability">
+    <app-item [components]="gVulnComponents" title="qif.measure.g_vuln" description="g-Vulnerability"></app-item>
+  </mat-tab>
+  <mat-tab label="l-risk">
+    <app-item [components]="lRiskComponents" title="qif.measure.l_risk" description="l-Risk (loss-based Bayes risk)"></app-item>
+  </mat-tab>
+  <mat-tab label="Shannon entropy">
+    <app-item [components]="shannonComponents" title="qif.measure.shannon" description="Shannon entropy"></app-item>
+  </mat-tab>
+  <mat-tab label="Guessing entropy">
+    <app-item [components]="guessingComponents" title="qif.measure.guessing" description="Guessing entropy"></app-item>
+  </mat-tab>
+  <mat-tab label="d-privacy">
+    <app-item [components]="dPrivacyComponents" title="qif.measure.d_privacy" description="d-Privacy"></app-item>
+  </mat-tab>
+</mat-tab-group>

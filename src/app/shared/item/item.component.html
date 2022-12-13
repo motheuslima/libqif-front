@@ -1,0 +1,22 @@
+<h1>{{title}}</h1>
+<h2>{{description}}</h2>
+<mat-accordion>
+  <mat-expansion-panel hideToggle="true" *ngFor="let component of components">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{component.title}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{component.description}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of component.items">
+        <div class="list-content">
+          <span>{{item.description}}</span>
+          <button mat-raised-button color="primary" (click)="openTryMethod(item.method)">Try</button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
