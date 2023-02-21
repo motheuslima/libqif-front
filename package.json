@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postinstall": "ng build --aot --prod"
+    "postinstall": "ng build --aot --prod",
+    "deploy": "ng deploy --base-href=https://motheuslima.github.io/libqif-front/"
   },
   "private": true,
   "dependencies": {
