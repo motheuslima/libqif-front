@@ -68,6 +68,8 @@ export class TryMethodDialogComponent implements OnInit, OnDestroy {
             rv += "[" + rvv + "],"
           });
           ret += "[" + rv + "]"
+        } else {
+          return value; 
         }
         return JSON.parse(ret.replaceAll(',]', ']'));
       case ParameterType.STRING:
@@ -88,15 +90,27 @@ export class TryMethodDialogComponent implements OnInit, OnDestroy {
         else if (param.isMatrix) return "[[2/2, 1/2, 3/2], [1, 1/3, 1/4], [1/2, 1/5, 3/2]]";
         else return "1/2";
       case ParameterType.BOOLEAN:
-        return "True";
+        return "true/false";
       case ParameterType.STRING:
         return "factorize";
+      case ParameterType.INTEGER:
+          if (param.isArray) return "[1, 2, 3]";
+          else if (param.isMatrix) return "[[1, 2, 1], [1, 3, 4], [1, 4, 1]]";
+          else return "1";
       default:
         return "";
     }
   }
 
+  isBoolean(param: Parameter): boolean {
+    return param.type == ParameterType.BOOLEAN
+  }
+
   runMethod() {
+    this.hasResult = false;
+    this.resultFormControl.setValue(null);
+    this.resultFormControl.updateValueAndValidity();
+
     let obj = {
       'isRatio': this.data.isRatio
     }
@@ -109,8 +123,6 @@ export class TryMethodDialogComponent implements OnInit, OnDestroy {
       }
     )
 
-    console.log(obj);
-
     this.service.callMethod(this.data.url, obj)
     .pipe(takeUntil(this.destroy$))
     .subscribe(
@@ -118,6 +130,9 @@ export class TryMethodDialogComponent implements OnInit, OnDestroy {
         this.hasResult = true;
         this.resultFormControl.setValue(res.result);
         this.resultFormControl.updateValueAndValidity();
+      },
+      (err) => {
+        window.alert("Error " + err.error.code + " | " + err.error.description);
       }
     );
   }

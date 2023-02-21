@@ -15,6 +15,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { HomeComponent } from './home/home.component';
 import { ChannelComponent } from './channel/channel.component';
@@ -27,10 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ItemComponent } from './shared/item/item.component';
 import { ProbabComponent } from './probab/probab.component';
 import { MetricComponent } from './metric/metric.component';
-import { MechanismComponent } from './mechanism/mechanism.component';
 import { RefinementComponent } from './refinement/refinement.component';
 import { UtilityComponent } from './utility/utility.component';
-import { LpComponent } from './lp/lp.component';
 
 @NgModule({
   declarations: [
@@ -42,10 +41,8 @@ import { LpComponent } from './lp/lp.component';
     ItemComponent,
     ProbabComponent,
     MetricComponent,
-    MechanismComponent,
     RefinementComponent,
     UtilityComponent,
-    LpComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +59,8 @@ import { LpComponent } from './lp/lp.component';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule
   ],
   providers: [MethodService],
   bootstrap: [AppComponent]
