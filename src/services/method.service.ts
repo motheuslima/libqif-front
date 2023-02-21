@@ -4,9 +4,9 @@ import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http"
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
-const BASE_URL = 'https://libqif-api.herokuapp.com';
+const BASE_URL = 'https://libqif-api.onrender.com';
 const LOCAL_URL = 'https://LIBQIF.motheuslima.repl.co';
-const IS_DEV = true; //switch to true when dev
+const IS_DEV = false; //switch to true when dev
 
 
 @Injectable()
