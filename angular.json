@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "b07f9cbb-7630-426b-ba77-19c2c30408d3"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "libqif-api": {
+    "libqif-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/libqif-api",
+            "outputPath": "dist/libqif-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "libqif-api:build:production"
+              "browserTarget": "libqif-front:build:production"
             },
             "development": {
-              "browserTarget": "libqif-api:build:development"
+              "browserTarget": "libqif-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "libqif-api:build"
+            "browserTarget": "libqif-front:build"
           }
         },
         "test": {
@@ -110,5 +113,5 @@
       }
     }
   },
-  "defaultProject": "libqif-api"
+  "defaultProject": "libqif-front"
 }
